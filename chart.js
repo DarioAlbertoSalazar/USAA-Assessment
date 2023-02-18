@@ -1,13 +1,10 @@
 function createBarChart(data) {
-    // Define the chart container element
     const chartContainer = document.getElementById("chart-container");
 
-    // Create a div element for each data point
     data.forEach((item) => {
         const barWrapper = document.createElement("div");
         barWrapper.className = "bar-wrapper";
 
-        // Create a div element for the label
         const label = document.createElement("div");
         label.className = "label";
         label.innerText = item.label;
@@ -16,24 +13,19 @@ function createBarChart(data) {
         const bar = document.createElement("div");
         bar.className = "bar";
 
-        // Set the width and height of the bar based on the data value
         bar.style.width = "0%";
         bar.style.height = "20px";
-        // Set the background color of the bar
         bar.style.backgroundColor = item.color;
 
         barWrapper.appendChild(bar);
 
-        // Create a div element for the label
         const label2 = document.createElement("div");
         label2.className = "label2";
         label2.innerText = item.label2;
         barWrapper.appendChild(label2);
 
-        // Add the bar to the chart container
         chartContainer.appendChild(barWrapper);
 
-        // Animate the bar width using CSS transitions
         setTimeout(() => bar.style.width = `${item.value}%`, 100);
     });
 }
